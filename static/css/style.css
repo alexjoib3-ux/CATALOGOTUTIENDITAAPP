@@ -1,0 +1,64 @@
+/* Efectos especiales naranjas para imágenes */
+.product-img-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img-container img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.product-img-container:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.05) sepia(20%) hue-rotate(-10deg);
+}
+
+.product-img-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(249, 115, 22, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-img-container:hover::after {
+    opacity: 1;
+}
+
+/* Estilo para las miniaturas seleccionadas en la galería del Modal */
+.thumb-active {
+    border-color: #ea580c !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.4);
+}
+
+/* Scrollbars personalizados con tono artesanal */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff7ed;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fdba74;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+}
+
+/* Configuración para impresión de pedidos */
+@media print {
+    body { 
+        background: white !important; 
+        color: black !important;
+    }
+    header, footer, button, .no-print, #admin-panel, #cart-drawer { 
+        display: none !important; 
+    }
+}
