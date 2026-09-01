@@ -1,39 +1,6 @@
 // ==========================================
 // 1. PRODUCTOS POR DEFECTO Y VARIABLES GLOBALES
 // ==========================================
-const defaultProducts = [
-    {
-        id: 1,
-        name: "Bocadillo de Guayaba (Caja x12)",
-        wholesalePrice: 12.00,
-        units: 12,
-        unitPrice: 1.30,
-        images: [
-            { url: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=600&auto=format&fit=crop", x: 50, y: 50 },
-            { url: "https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=600&auto=format&fit=crop", x: 50, y: 50 }
-        ]
-    },
-    {
-        id: 2,
-        name: "Dulce de Leche de Cabra Artesanal",
-        wholesalePrice: 8.50,
-        units: 1,
-        unitPrice: 8.50,
-        images: [
-            { url: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=600&auto=format&fit=crop", x: 50, y: 50 }
-        ]
-    },
-    {
-        id: 3,
-        name: "Combo Mixto (Guayaba + Leche de Cabra)",
-        wholesalePrice: 18.00,
-        units: 1,
-        unitPrice: 18.00,
-        images: [
-            { url: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop", x: 50, y: 50 }
-        ]
-    }
-];
 
 let products = JSON.parse(localStorage.getItem('catalog_products')) || defaultProducts;
 let cart = JSON.parse(localStorage.getItem('catalog_cart')) || [];
@@ -852,8 +819,8 @@ function sendWhatsApp() {
 }
 
 function shareCatalogWhatsApp() {
-    const storeUrl = window.location.href; 
-    let message = `¡Hola! 👋 Te comparto nuestro catálogo completo de dulces artesanales al mayor. Puedes ver los productos, fotos y realizar tu pedido directo aquí:%0A%0A${storeUrl}`;
+    
+    let message = `¡Hola! 👋 Te comparto nuestro catálogo completo de dulces artesanales al mayor. Puedes ver los productos, fotos y realizar tu pedido directo aquí`;
 
     const url = `https://api.whatsapp.com/send?text=${message}`;
     window.open(url, '_blank');
